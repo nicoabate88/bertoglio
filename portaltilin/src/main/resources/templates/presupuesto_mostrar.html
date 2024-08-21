@@ -8,8 +8,8 @@
         <link rel="stylesheet" href="/css/medidas_mostrar.css">
     </head>
     <body>
-       <nav class="navbar bg-dark mb-2">      
-            <header class=" text-bg-dark">
+       <nav class="navbar bg-secondary mb-2">      
+            <header>
                 <div class="container">
                     <div class="d-flex flex-wrap align-items-center justify-content-center">                        
                         <a href="/index" class="d-flex align-items-center text-white text-decoration-none">                         
@@ -21,7 +21,7 @@
                             <li><a href="/presupuesto/registrar" class="nav-link px-2 text-light">PRESUPUESTO</a></li>
                             <li><a href="/recibo/registrar" class="nav-link px-2 text-light">RECIBO</a></li>
                             <li><a href="/cuenta/listar" class="nav-link px-2 text-light">CUENTA</a></li>
-                            <li><a href="/proveedor/registrar" class="nav-link px-2 text-light">PROVEEDOR</a></li>
+                            <li><a href="/proveedor/listar" class="nav-link px-2 text-light">PROVEEDOR</a></li>
                             <li><a href="/caja/listar" class="nav-link px-2 text-light">CAJA</a></li>
                         </ul>
                     </div>
@@ -32,30 +32,30 @@
         <section>
             <div class="container">
 
-                <div class="card bg-dark">  
-                    <div class="card-header bg-dark text-white">
+                <div class="card bg-light">  
+                    <div class="card-header border-0 bg-light">
 
                         <div class="row mb-3">
                             <div class="d-none d-sm-block col-md-2 col-lg-2 col-xl-2">
-                                <div class="form-floating btn btn-outline-danger" type="button">
+                                <div class="form-floating btn btn-outline-primary" type="button">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="100" height="28" fill="currentColor" class="bi bi-calculator-fill" viewBox="0 0 16 16">
                                     <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm2 .5v2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0-.5.5m0 4v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 12.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM7 9.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM10 6.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5z"/>
                                     </svg> <h5>Presupuesto</h5>
                                 </div>
                             </div>
                             <div class="d-none d-sm-block col-md-4 col-lg-4 col-xl-4">
-                                <div class="d-flex align-items-center text-danger" style="height: 72px;">
+                                <div class="d-flex align-items-center text-primary" style="height: 72px;">
                                     <h3>Detalle de Presupuesto</h3>
                                 </div>
                             </div>
                             <div class="d-none d-sm-block col-md-5 col-lg-5 col-xl-5">    
-                                <div th:if="${exito != null}" class="btn btn-outline-warning">
+                                <div th:if="${exito != null}" class="btn btn-outline-dark">
                                     <h5>Mensaje:</h5>
                                     <h6 th:text="${exito}"></h6>
                                 </div>                                                   
                             </div>                                               
                             <div class="d-none d-sm-block col-md-1 col-lg-1 col-xl-1">
-                                <a th:href="@{/presupuesto/mostrarPdf/__${presupuesto.id}__}" target="_blank" title="Generar PDF" type="button" class="btn btn-outline-warning">
+                                <a th:href="@{/presupuesto/mostrarPdf/__${presupuesto.id}__}" target="_blank" title="Generar PDF" type="button" class="btn btn-outline-secondary">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-file-earmark-pdf-fill" viewBox="0 0 16 16">
                                     <path d="M5.523 12.424q.21-.124.459-.238a8 8 0 0 1-.45.606c-.28.337-.498.516-.635.572l-.035.012a.3.3 0 0 1-.026-.044c-.056-.11-.054-.216.04-.36.106-.165.319-.354.647-.548m2.455-1.647q-.178.037-.356.078a21 21 0 0 0 .5-1.05 12 12 0 0 0 .51.858q-.326.048-.654.114m2.525.939a4 4 0 0 1-.435-.41q.344.007.612.054c.317.057.466.147.518.209a.1.1 0 0 1 .026.064.44.44 0 0 1-.06.2.3.3 0 0 1-.094.124.1.1 0 0 1-.069.015c-.09-.003-.258-.066-.498-.256M8.278 6.97c-.04.244-.108.524-.2.829a5 5 0 0 1-.089-.346c-.076-.353-.087-.63-.046-.822.038-.177.11-.248.196-.283a.5.5 0 0 1 .145-.04c.013.03.028.092.032.198q.008.183-.038.465z"/>
                                     <path fill-rule="evenodd" d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2m5.5 1.5v2a1 1 0 0 0 1 1h2zM4.165 13.668c.09.18.23.343.438.419.207.075.412.04.58-.03.318-.13.635-.436.926-.786.333-.401.683-.927 1.021-1.51a11.7 11.7 0 0 1 1.997-.406c.3.383.61.713.91.95.28.22.603.403.934.417a.86.86 0 0 0 .51-.138c.155-.101.27-.247.354-.416.09-.181.145-.37.138-.563a.84.84 0 0 0-.2-.518c-.226-.27-.596-.4-.96-.465a5.8 5.8 0 0 0-1.335-.05 11 11 0 0 1-.98-1.686c.25-.66.437-1.284.52-1.794.036-.218.055-.426.048-.614a1.24 1.24 0 0 0-.127-.538.7.7 0 0 0-.477-.365c-.202-.043-.41 0-.601.077-.377.15-.576.47-.651.823-.073.34-.04.736.046 1.136.088.406.238.848.43 1.295a20 20 0 0 1-1.062 2.227 7.7 7.7 0 0 0-1.482.645c-.37.22-.699.48-.897.787-.21.326-.275.714-.08 1.103"/>
@@ -86,26 +86,26 @@
                         <div class="row">
                             <div class="mb-2 col-sm-1">               
                                 <div class="form-floating mb-2">
-                                    <label for="id" class="form-label text-white">ID</label>
-                                    <input type="text" id="id" class="bg-dark text-white form-control" th:value="${presupuesto.id}" disabled readonly>
+                                    <label for="id" class="form-label text-secondary">ID</label>
+                                    <input type="text" id="id" class="form-control" th:value="${presupuesto.id}" disabled readonly>
                                 </div>
                             </div>
                             <div class="col-sm-5">
                                 <div class="form-floating mb-2">
-                                    <label for="cliente" class="form-label text-white">Nombre de Cliente</label>
-                                    <input id="cliente" class="bg-dark text-white form-control" type="text" th:value="${presupuesto.cliente.nombre}" disabled readonly>
+                                    <label for="cliente" class="form-label text-secondary">Nombre de Cliente</label>
+                                    <input id="cliente" class="form-control" type="text" th:value="${presupuesto.cliente.nombre}" disabled readonly>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-floating mb-2">
-                                    <label for="vehiculo" class="form-label text-white">Vehículo</label>
-                                    <input id="vehiculo" class="bg-dark text-white form-control" type="text" th:value="${presupuesto.vehiculo.dominio}+' - '+ ${presupuesto.vehiculo.marca}+' '+${presupuesto.vehiculo.modelo}" disabled readonly>
+                                    <label for="vehiculo" class="form-label text-secondary">Vehículo</label>
+                                    <input id="vehiculo" class="form-control" type="text" th:value="${presupuesto.vehiculo.dominio}+' - '+ ${presupuesto.vehiculo.marca}+' '+${presupuesto.vehiculo.modelo}" disabled readonly>
                                 </div>
                             </div>      
                             <div class="col-sm-2">
                                 <div class="form-floating mb-2">
-                                    <label for="fecha" class="form-label text-white">Fecha de Servicio</label>
-                                    <input id="fecha" type="date" class="bg-dark text-white form-control" th:value="${presupuesto.fecha}" disabled readonly>
+                                    <label for="fecha" class="form-label text-secondary">Fecha de Servicio</label>
+                                    <input id="fecha" type="date" class="form-control" th:value="${presupuesto.fecha}" disabled readonly>
                                 </div>
                             </div>
                         </div>
@@ -113,15 +113,15 @@
 
 
                         <div class="form-floating mb-4">
-                            <label for="observacion" class="form-label text-white">Observación</label>
-                            <input id="observacion" type="text" class="bg-dark text-white form-control" th:value="${presupuesto.observacion}" disabled readonly>  
+                            <label for="observacion" class="form-label text-secondary">Observación</label>
+                            <input id="observacion" type="text" class="form-control" th:value="${presupuesto.observacion}" disabled readonly>  
                         </div>
 
 
 
                         <div class="row">
                             <div class="col-sm-7 mb-2">
-                                <div class="form-floating">
+                                <div class="form-floating text-secondary">
                                     <h5>Artículos</h5>
                                 </div>
 
@@ -129,8 +129,8 @@
                         </div>
 
 
-                        <div class="table-responsive mb-3" id="tablaAltura" style="background-color:  whitesmoke; padding: 15px; border-radius: 3px;">
-                            <table class="table table-sm table-hover">
+                        <div class="table-responsive mb-3" id="tablaAltura" style="padding: 15px; border-radius: 3px;">
+                            <table class="table table-sm text-secondary">
                                 <thead>
                                     <tr>
                                         <th class="col-sm-1">Cantidad</th>
@@ -158,7 +158,7 @@
                         
                         <div class="row">
                             <div class="col-sm-9"> 
-                                <a th:href= "@{/presupuesto/listar}" title="Volver" type="button" class="btn btn-outline-warning">Aceptar</a>
+                                <a th:href= "@{/presupuesto/listar}" title="Volver" type="button" class="btn btn-outline-primary">Aceptar</a>
                             </div>
                             <div class="col-sm-3 text-center">
                                 <p class="form-label text-white" th:text=" 'usuario: '+${presupuesto.usuario.nombre}"></p>

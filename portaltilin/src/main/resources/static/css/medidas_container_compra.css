@@ -26,8 +26,8 @@ body, html {
 
 #tablaAlturaElimina {
 
-    min-height: 250px; /* Altura total menos el navbar (56px) */
-    max-height: 250px;  
+    min-height: 332px; /* Altura total menos el navbar (56px) */
+    max-height: 332px;  
     overflow-y: auto;
 
 }
@@ -50,8 +50,8 @@ body, html {
         font-size: 15px;
     }
     #logo {
-        width: 155px; /* Puedes usar px, %, em, rem, etc. */
-        height: auto;
+        width: 92px; /* Puedes usar px, %, em, rem, etc. */
+        height: 38px;
     }
 
     .container {

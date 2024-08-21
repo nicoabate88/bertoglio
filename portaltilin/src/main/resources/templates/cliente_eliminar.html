@@ -7,8 +7,8 @@
         <link rel="stylesheet" href="/css/medidas_container_registro.css"> 
     </head>
     <body>
-      <nav class="navbar bg-dark mb-2">      
-            <header class=" text-bg-dark">
+     <nav class="navbar bg-secondary mb-2">      
+            <header>
                 <div class="container">
                     <div class="d-flex flex-wrap align-items-center justify-content-center">                        
                         <a href="/index" class="d-flex align-items-center text-white text-decoration-none">                         
@@ -20,7 +20,7 @@
                             <li><a href="/presupuesto/registrar" class="nav-link px-2 text-light">PRESUPUESTO</a></li>
                             <li><a href="/recibo/registrar" class="nav-link px-2 text-light">RECIBO</a></li>
                             <li><a href="/cuenta/listar" class="nav-link px-2 text-light">CUENTA</a></li>
-                            <li><a href="/proveedor/registrar" class="nav-link px-2 text-light">PROVEEDOR</a></li>
+                            <li><a href="/proveedor/listar" class="nav-link px-2 text-light">PROVEEDOR</a></li>
                             <li><a href="/caja/listar" class="nav-link px-2 text-light">CAJA</a></li>
                         </ul>
                     </div>
@@ -31,19 +31,19 @@
     <sectional>
         <div class="container">
 
-            <div class="card bg-dark" id="alturaCard">  
-                <div class="card-header bg-dark text-white">
+            <div class="card bg-light" id="alturaCard">  
+                <div class="card-header border-0 bg-light">
 
                     <div class="row">
                         <div class="mb-4 d-none d-sm-block col-md-2 col-lg-2 col-xl-2">
-                            <div class="form-floating btn btn-outline-danger" type="button">                                   
+                            <div class="form-floating btn btn-outline-primary" type="button">                                   
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="28" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
                                 </svg>  <h5>Cliente</h5>
                             </div>   
                         </div>
                         <div class="col-sm-1 col-md-3 col-lg-3 col-xl-3">
-                            <div class="d-flex align-items-center text-danger" style="height: 72px;">
+                            <div class="d-flex align-items-center text-primary" style="height: 72px;">
                                 <h3>Eliminar Cliente</h3>
                             </div>
                         </div>
@@ -52,48 +52,48 @@
                     <div class="row">
                         <div class="col-sm-1 col-md-1 col-lg-1 col-xl-1">               
                             <div class="form-floating mb-3">
-                                <label for="id" class="form-label text-white">ID</label>
-                                <input type="text" id="id" class="bg-dark text-white form-control" th:value="${cliente.id}" disabled readonly>
+                                <label for="id" class="form-label text-secondary">ID</label>
+                                <input type="text" id="id" class="form-control" th:value="${cliente.id}" disabled readonly>
                             </div>
                         </div>
                         <div class="col-sm-1 col-md-5 col-lg-5 col-xl-5">               
                             <div class="form-floating mb-3">
-                                <label for="nombre" class="form-label text-white">Nombre de Cliente</label>
-                                <input type="text" id="nombre" class="bg-dark text-white form-control" th:value="${cliente.nombre}" disabled readonly>
+                                <label for="nombre" class="form-label text-secondary">Nombre de Cliente</label>
+                                <input type="text" id="nombre" class="form-control" th:value="${cliente.nombre}" disabled readonly>
                             </div>
                         </div>
                         <div class="col-sm-1 col-md-4 col-lg-4 col-xl-4">
                             <div class="form-floating mb-3">
-                                <label for="cuit" class="form-label text-white">DNI/CUIT</label>
-                                <input type="number" id="cuit" class="bg-dark text-white form-control" th:value="${cliente.cuit}" disabled readonly>
+                                <label for="cuit" class="form-label text-secondary">DNI/CUIT</label>
+                                <input type="number" id="cuit" class="form-control" th:value="${cliente.cuit}" disabled readonly>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-1 col-md-5 col-lg-5 col-xl-5">
                             <div class="form-floating mb-3">
-                                <label for="localidad" class="form-label text-white">Localidad</label>
-                                <input type="text" id="localidad" class="bg-dark text-white form-control" th:value="${cliente.localidad}" disabled readonly>
+                                <label for="localidad" class="form-label text-secondary">Localidad</label>
+                                <input type="text" id="localidad" class="form-control" th:value="${cliente.localidad}" disabled readonly>
                             </div>
                         </div>
                         <div class="d-none d-sm-block col-md-5 col-lg-5 col-xl-5">
                             <div class="form-floating mb-3">
-                                <label for="direccion" class="form-label text-white">Dirección</label>
-                                <input type="text" id="direccion" class="bg-dark text-white form-control" th:value="${cliente.direccion}" disabled readonly>
+                                <label for="direccion" class="form-label text-secondary">Dirección</label>
+                                <input type="text" id="direccion" class="form-control" th:value="${cliente.direccion}" disabled readonly>
                             </div>
                         </div>
                     </div>
                     <div class="row mb-5">
                         <div class="d-none d-sm-block col-md-5 col-lg-5 col-xl-5">
                             <div class="form-floating mb-3">
-                                <label for="telefono" class="form-label text-white">Teléfono</label>
-                                <input type="number" id="telefono" class="bg-dark text-white form-control" th:value="${cliente.telefono}" disabled readonly>
+                                <label for="telefono" class="form-label text-secondary">Teléfono</label>
+                                <input type="number" id="telefono" class="form-control" th:value="${cliente.telefono}" disabled readonly>
                             </div>
                         </div>
                         <div class="col-md-5 col-lg-5 col-xl-5">
                             <div class="form-floating mb-3">
-                                <label for="email" class="form-label text-white">Email</label>
-                                <input type="email" id="email" class="bg-dark text-white form-control" th:value="${cliente.email}" disabled readonly>
+                                <label for="email" class="form-label text-secondary">Email</label>
+                                <input type="email" id="email" class="form-control" th:value="${cliente.email}" disabled readonly>
                             </div>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
                     
                     <div class="row mb-3">
                         <div class="col-sm-5">    
-                            <div th:if="${error == null}" class="btn btn-outline-warning">
+                            <div th:if="${error == null}" class="btn btn-outline-dark">
                                 <h5>Mensaje:</h5>
                                 <h6>¿Seguro desea ELIMINAR este Cliente?</h6>
                             </div>
@@ -117,12 +117,12 @@
                     </div>
                     
                     <div class="card-footer d-none d-sm-block">
-                    <a th:href="@{/cliente/elimina/__${cliente.id}__}" type="button" class="btn btn-outline-danger" title="Eliminar Cliente">Eliminar</a>
-                    <a th:href="@{/cliente/listar}" type="button" class="btn btn-outline-warning" title="Volver">Cancelar</a>
+                    <a th:href="@{/cliente/elimina/__${cliente.id}__}" type="button" class="btn btn-outline-primary" title="Eliminar Cliente">Eliminar</a>
+                    <a th:href="@{/cliente/listar}" type="button" class="btn btn-outline-primary" title="Volver">Cancelar</a>
                     </div>
                     <div class="d-block d-md-none">
-                        <a th:href="@{/cliente/elimina/__${cliente.id}__}" class="btn btn-outline-danger" title="Eliminar Cliente">Eliminar</a>
-                        <a th:href="@{/cliente/listar}" type="button" class="btn btn-outline-warning" title="Volver">Cancelar</a>
+                        <a th:href="@{/cliente/elimina/__${cliente.id}__}" class="btn btn-outline-primary" title="Eliminar Cliente">Eliminar</a>
+                        <a th:href="@{/cliente/listar}" type="button" class="btn btn-outline-primary" title="Volver">Cancelar</a>
                         </div>
                   
                 </div>    

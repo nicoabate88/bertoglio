@@ -41,12 +41,21 @@ public class CajaControlador {
     @PostMapping("/registro")
     public String registro(@RequestParam String nombre, ModelMap modelo) throws MiException {
 
+        try {
+        
         cajaServicio.crearCaja(nombre);
 
         modelo.addAttribute("cajas", cajaServicio.buscarCajas());
         modelo.put("exito", "Caja REGISTRADO exitosamente");
 
         return "caja_listar.html";
+         
+        } catch (MiException ex) {
+           
+            modelo.put("error", ex.getMessage());
+
+            return "caja_registrar.html";
+        }
 
     }
 

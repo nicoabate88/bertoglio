@@ -7,15 +7,15 @@
         <link rel="stylesheet" href="/css/medidas_container_recibo.css"> 
     </head>
     <body>
-        <nav class="navbar bg-dark mb-2">      
-            <header class=" text-bg-dark">
+        <nav class="navbar bg-secondary mb-2">      
+            <header>
                 <div class="container">
                     <div class="d-flex flex-wrap align-items-center justify-content-center">                        
                         <a href="/index" class="d-flex align-items-center text-white text-decoration-none">                         
                             <img src="/logo1.png" id="logo" class="card-img-top" alt="logo">
                         </a>
                         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                            <li><a href="/proveedor/registrar" class="nav-link px-2 text-light">PROVEEDOR</a></li>
+                            <li><a href="/proveedor/listar" class="nav-link px-2 text-light">PROVEEDOR</a></li>
                             <li><a href="/compra/registrar" class="nav-link px-2 text-light">COMPRA</a></li>
                             <li><a href="/pago/registrar" class="nav-link px-2 text-light">PAGO</a></li>
                             <li><a href="/cuentap/listar" class="nav-link px-2 text-light">CUENTAS</a></li>
@@ -28,30 +28,30 @@
         
         <div class="container">
 
-            <div class="card bg-dark">  
-                <div class="card-header bg-dark text-white">
+            <div class="card bg-light">  
+                <div class="card-header border-0 bg-light">
 
                     <div class="row mb-2">
                         <div class="d-none d-sm-block col-md-2 col-lg-2 col-xl-2">
-                            <div class="form-floating mb-2 btn btn-outline-danger" type="button">                                   
+                            <div class="form-floating mb-2 btn btn-outline-primary" type="button">                                   
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="28" fill="currentColor" class="bi bi-credit-card-2-back-fill" viewBox="0 0 16 16">
                                 <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5H0zm11.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM0 11v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1z"/>
                                 </svg>  <h5>Pago</h5>
                             </div> 
                         </div>   
                         <div class="d-none d-sm-block col-md-3 col-lg-3 col-xl-3">
-                            <div class="d-flex align-items-center text-danger" style="height: 72px;">
+                            <div class="d-flex align-items-center text-primary" style="height: 72px;">
                                 <h3>Detalle de Pago</h3>
                         </div>
                         </div>
                          <div class="d-none d-sm-block col-md-6 col-lg-6 col-xl-6">    
-                                <div th:if="${exito != null}" class="btn btn-outline-warning">
+                                <div th:if="${exito != null}" class="btn btn-outline-dark">
                                     <h5>Mensaje:</h5>
                                     <h6 th:text="${exito}"></h6>
                                 </div>                                                   
                             </div>
                         <div class="d-none d-sm-block col-md-1 col-lg-1 col-xl-1">
-                                <a th:href="@{/pago/mostrarPdf/__${pago.id}__}" target="_blank" title="Generar PDF" type="button" class="btn btn-outline-warning">
+                                <a th:href="@{/pago/mostrarPdf/__${pago.id}__}" target="_blank" title="Generar PDF" type="button" class="btn btn-outline-secondary">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z"/>
                                     </svg> </a>                                               
@@ -79,32 +79,32 @@
                         <div class="row mb-2">
                             <div class="col-sm-2 mb-2">
                                 <div class="form-floating">
-                                    <label for="id" class="form-label text-white">ID Pago</label>
-                                    <input id="id" class="bg-dark text-white form-control" type="text" th:value="${pago.id}" disabled readonly>
+                                    <label for="id" class="form-label text-secondary">ID Pago</label>
+                                    <input id="id" class="form-control" type="text" th:value="${pago.id}" disabled readonly>
                                 </div>  
                             </div>
                             <div class="col-sm-7">
                                 <div class="form-floating mb-2">
-                                    <label for="cliente" class="form-label text-white">Nombre de Proveedor</label>
-                                    <input id="cliente" class="bg-dark text-white form-control" type="text" th:value="${pago.proveedor.nombre}" disabled readonly>
+                                    <label for="cliente" class="form-label text-secondary">Nombre de Proveedor</label>
+                                    <input id="cliente" class="form-control" type="text" th:value="${pago.proveedor.nombre}" disabled readonly>
                                 </div>  
                             </div>
                              <div class="col-sm-3">    
                                     <div class="form-floating mb-2">
-                                        <label for="importe" class="form-label text-white">Total Pago</label>
-                                        <input type="text" id="importe" class="bg-dark text-white form-control" th:value="'$'+${totalPago}">
+                                        <label for="importe" class="form-label text-secondary">Total Pago</label>
+                                        <input type="text" id="importe" class="form-control" th:value="'$'+${totalPago}" disabled radonly>
                                     </div>
                                 </div>
                         </div>
                     
                          <div class="form-floating mb-4">
-                            <label for="observacion" class="form-label text-white">Observación</label>
-                            <input type="text" id="observacion" class="bg-dark text-white form-control" th:value="${pago.observacion}" disabled readonly>
+                            <label for="observacion" class="form-label text-secondary">Observación</label>
+                            <input type="text" id="observacion" class="form-control" th:value="${pago.observacion}" disabled readonly>
                         </div>
                     
                          <div class="row">
                             <div class="col-sm-7 mb-2">
-                                <div class="form-floating">
+                                <div class="form-floating text-secondary">
                                     <h5>Valores</h5>
                                 </div>
 
@@ -112,7 +112,7 @@
                         </div>
                    
                     <div class="table-responsive mb-3" id="tablaAlturaMostrar" style="padding: 15px; border-radius: 3px;">
-                            <table class="table table-sm text-light">
+                            <table class="table table-sm text-secondary">
                                 <thead>
                                     <tr>
                                         <th class="col-sm-2"></th>
@@ -138,10 +138,10 @@
                         
                         <div class="row">
                             <div class="col-sm-9"> 
-                                <a th:href= "@{/pago/registrar}" title="Volver" type="button" class="btn btn-outline-warning">Aceptar</a>
+                                <a th:href= "@{/pago/registrar}" title="Volver" type="button" class="btn btn-outline-primary">Aceptar</a>
                             </div>
                             <div class="col-sm-3 text-center">
-                                <p class="form-label text-white" th:text=" 'usuario: '+${pago.usuario.nombre}"></p>
+                                <p class="form-label text-secondary" th:text=" 'usuario: '+${pago.usuario.nombre}"></p>
                             </div>
                         </div>
 

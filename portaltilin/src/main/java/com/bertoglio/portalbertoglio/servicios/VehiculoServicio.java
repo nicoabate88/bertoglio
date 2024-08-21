@@ -108,7 +108,7 @@ public class VehiculoServicio {
     }
 
     @Transactional
-    public void modificarVehiculo(Long id, String dominio, String marca, String modelo, Long anio, Long idCliente) {
+    public void modificarVehiculo(Long id, String dominio, String marca, String modelo, Long anio, Long idCliente) throws MiException {
 
         Vehiculo vehiculo = new Vehiculo();
 
@@ -123,7 +123,8 @@ public class VehiculoServicio {
         if (cte.isPresent()) {
             cliente = cte.get();
         }
-
+        validarDatosModificar(vehiculo, dominio);
+        
         String dominioMayusculas = dominio.toUpperCase();
         String marcaMayusculas = marca.toUpperCase();
         String modeloMayusculas = modelo.toUpperCase();
@@ -174,6 +175,21 @@ public class VehiculoServicio {
 
             }
 
+        }
+
+    }
+    
+     public void validarDatosModificar(Vehiculo vehiculo, String dominio) throws MiException {
+
+        ArrayList<Vehiculo> listaVehiculo = buscarVehiculos();
+
+        if(!vehiculo.getDominio().equalsIgnoreCase(dominio)){
+        for (Vehiculo lista : listaVehiculo) {
+            if (lista.getDominio().equalsIgnoreCase(dominio)) {
+                throw new MiException("El Dominio del Vehículo ya está registrado");
+
+            }
+        }
         }
 
     }

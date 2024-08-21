@@ -7,8 +7,8 @@
         <link rel="stylesheet" href="/css/medidas_container.css">  
     </head>
     <body>
-        <nav class="navbar bg-dark mb-2">      
-            <header class=" text-bg-dark">
+        <nav class="navbar bg-secondary mb-2">      
+            <header>
                 <div class="container">
                     <div class="d-flex flex-wrap align-items-center justify-content-center">                        
                         <a href="/index" class="d-flex align-items-center text-white text-decoration-none">                         
@@ -20,7 +20,7 @@
                             <li><a href="/presupuesto/registrar" class="nav-link px-2 text-light">PRESUPUESTO</a></li>
                             <li><a href="/recibo/registrar" class="nav-link px-2 text-light">RECIBO</a></li>
                             <li><a href="/cuenta/listar" class="nav-link px-2 text-light">CUENTA</a></li>
-                            <li><a href="/proveedor/registrar" class="nav-link px-2 text-light">PROVEEDOR</a></li>
+                            <li><a href="/proveedor/listar" class="nav-link px-2 text-light">PROVEEDOR</a></li>
                             <li><a href="/caja/listar" class="nav-link px-2 text-light">CAJA</a></li>
                         </ul>
                     </div>
@@ -31,31 +31,31 @@
         <section>
             <div class="container">
 
-                <div class="card bg-dark" id="alturaCard">  
-                    <div class="card-header bg-dark text-white">
+                <div class="card bg-light" id="alturaCard">  
+                    <div class="card-header border-0 bg-light">
 
                         <div class="row">
                             <div class="mb-3 d-none d-sm-block col-md-2 col-lg-2 col-xl-2">
-                                <div class="form-floating mb-2 btn btn-outline-danger" type="button">                                   
+                                <div class="form-floating mb-2 btn btn-outline-primary" type="button">                                   
                                     <svg xmlns="http://www.w3.org/2000/svg" width="100" height="28" fill="currentColor" class="bi bi-wallet2" viewBox="0 0 16 16">
                                     <path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5z"/>
                                     </svg> <h5>Caja</h5>
                                 </div> 
                             </div>   
                             <div class="col-sm-1 col-md-5 col-lg-5 col-xl-5">
-                                <div class="d-flex align-items-center text-danger" style="height: 72px;">
+                                <div class="d-flex align-items-center text-primary" style="height: 72px;">
                                     <h3 th:text="'Caja '+${caja.nombre}"></h3>
                                 </div>
                             </div>
                             <div class="col-sm-1 col-md-5 col-lg-5 col-xl-5 text-end">
-                                <div class="d-flex align-items-center text-warning" style="height: 72px;">
+                                <div class="d-flex align-items-center text-secondary" style="height: 72px;">
                                     <h5 th:text="'Saldo Cheques en Cartera $'+${total}"></h5>
                                 </div>
                             </div> 
                         </div>  
 
                         <div class="table-responsive">
-                            <table class="table table-dark table-hover table-sm">
+                            <table class="table table-light table-hover table-sm text-secondary">
                                 <thead>
                                     <tr> 
                                         <th class="col-sm-2">DETALLE</th>
@@ -72,7 +72,7 @@
                                         <td th:text="${valor.fecha}"></td>
                                         <td th:text="'$'+${valor.importe}"></td>
                                         <td>
-                                            <a th:href="@{/caja/mostrarValor/__${valor.id}__}" type="button" class="btn btn-outline-danger" title="Ver Detalle">
+                                            <a th:href="@{/caja/mostrarValor/__${valor.id}__}" type="button" class="btn btn-outline-secondary" title="Ver Detalle">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-vcard-fill" viewBox="0 0 16 16">
                                                 <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5M9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8m1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5m-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96q.04-.245.04-.5M7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0"/>
                                                 </svg>
@@ -83,7 +83,7 @@
                         </div>
 
                         <div>
-                            <a th:href= "@{/caja/listar}" type="button" class="btn btn-outline-warning" title="Volver">Volver</a>
+                            <a th:href= "@{/caja/listar}" type="button" class="btn btn-outline-primary" title="Volver">Volver</a>
                         </div>
 
                     </div>

@@ -8,8 +8,8 @@
         <link rel="stylesheet" href="/css/medidas_container_registro.css"> 
     </head>
     <body>
-        <nav class="navbar bg-dark mb-2">      
-            <header class=" text-bg-dark">
+        <nav class="navbar bg-secondary mb-2">      
+            <header>
                 <div class="container">
                     <div class="d-flex flex-wrap align-items-center justify-content-center">                        
                         <a href="/index" class="d-flex align-items-center text-white text-decoration-none">                         
@@ -23,38 +23,37 @@
         <section>
         <div class="container">
 
-            <div class="card bg-dark" id="alturaCard">  
-                <div class="card-header bg-dark text-white">
+            <div class="card bg-light" id="alturaCard">  
+                <div class="card-header border-0 bg-light">
 
                     <div class="row">
                         <div class="mb-5 d-none d-sm-block col-md-2 col-lg-2 col-xl-2">
-                            <div class="form-floating btn btn-outline-danger" type="button">                                      
+                            <div class="form-floating btn btn-outline-primary" type="button">                                      
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="28" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
                                 </svg>  <h5>Usuario</h5>
                             </div>   
                         </div>   
                         <div class="col-sm-1 col-md-4 col-lg-4 col-xl-4">
-                            <div class="d-flex align-items-center text-warning" style="height: 72px;">
+                            <div class="d-flex align-items-center text-primary" style="height: 72px;">
                                 <h3>Registro de Usuario</h3>
                             </div>
                         </div>                                        
                     </div>
-
 
                     <form class="formulario" th:action="@{/registro}" method="POST">
 
                         <div class="row">
                             <div class="col-sm-5">
                                 <div class="form-floating mb-3">
-                                    <label for="nombre" class="form-label text-white">Apellido y Nombre</label>
-                                    <input type="text" id="nombre" class="bg-dark text-white form-control" name="nombre" placeholder="Ingrese Apellido y Nombre" th:value="${nombre}" required minlength="1" maxlength="35" size="35">
+                                    <label for="nombre" class="form-label text-secondary">Apellido y Nombre</label>
+                                    <input type="text" id="nombre" class="form-control" name="nombre" placeholder="Ingrese Apellido y Nombre" th:value="${nombre}" required minlength="1" maxlength="35" size="35">
                                 </div>
                             </div>
                             <div class="col-sm-5">
                                 <div class="form-floating mb-3">
-                                    <label for="nombreUsuario" class="form-label text-white">Nombre de Usuario</label>
-                                    <input type="text" id="nombreUsuario" class="bg-dark text-white form-control" name="nombreUsuario" placeholder="Ingrese Nombre de Usuario" th:value="${nombreUsuario}" required minlength="1" maxlength="35" size="35">
+                                    <label for="nombreUsuario" class="form-label text-secondary">Nombre de Usuario</label>
+                                    <input type="text" id="nombreUsuario" class="form-control" name="nombreUsuario" placeholder="Ingrese Nombre de Usuario" th:value="${nombreUsuario}" required minlength="1" maxlength="35" size="35">
                                 </div>
                             </div>
                         </div>
@@ -62,14 +61,14 @@
                         <div class="row">
                             <div class="col-sm-5">
                                 <div class="form-floating mb-3">
-                                    <label for="password" class="form-label text-white">Contraseña</label>
-                                    <input type="password" id="password" class="bg-dark text-white form-control" name="password" placeholder="Ingrese Contraseña" required minlength="3" maxlength="35" size="35">
+                                    <label for="password" class="form-label text-secondary">Contraseña</label>
+                                    <input type="password" id="password" class="form-control" name="password" placeholder="Ingrese Contraseña" required minlength="3" maxlength="35" size="35">
                                 </div>
                             </div>
                             <div class="col-sm-5">
                                 <div class="form-floating mb-5">
-                                    <label for="password2" class="form-label text-white">Repetir Contraseña</label>
-                                    <input type="password" id="password2" class="bg-dark text-white form-control" name="password2" placeholder="Repita Contraseña" required minlength="3" maxlength="35" size="35">
+                                    <label for="password2" class="form-label text-secondary">Repetir Contraseña</label>
+                                    <input type="password" id="password2" class="form-control" name="password2" placeholder="Repita Contraseña" required minlength="3" maxlength="35" size="35">
                                 </div>
                             </div>
                         </div>
@@ -82,8 +81,8 @@
                         </div>
                         
                         <div class="card-footer">
-                        <button type="submit" class="btn btn-outline-danger" title="Registrar Usuario">Aceptar</button>
-                        <a th:href= "@{/index}" type="button" class="btn btn-outline-warning" title="Volver">Cancelar</a>
+                        <button type="submit" class="btn btn-outline-primary" title="Registrar Usuario">Aceptar</button>
+                        <a th:href= "@{/index}" type="button" class="btn btn-outline-primary" title="Volver">Cancelar</a>
                         </div>
                     </form>      
                 </div>

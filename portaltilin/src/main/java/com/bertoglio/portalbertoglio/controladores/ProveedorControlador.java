@@ -2,6 +2,8 @@ package com.bertoglio.portalbertoglio.controladores;
 
 import com.bertoglio.portalbertoglio.excepciones.MiException;
 import com.bertoglio.portalbertoglio.servicios.ProveedorServicio;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -99,12 +101,22 @@ public class ProveedorControlador {
     public String modifica(@RequestParam Long id, @RequestParam String nombre, @RequestParam(required = false) Long cuit, @RequestParam(required = false) String localidad,
             @RequestParam(required = false) String direccion, @RequestParam(required = false) Long telefono, @RequestParam(required = false) String email, ModelMap modelo) {
 
-        proveedorServicio.modificarProveedor(id, nombre, cuit, localidad, direccion, telefono, email);
+        try {
+            proveedorServicio.modificarProveedor(id, nombre, cuit, localidad, direccion, telefono, email);
 
-        modelo.put("proveedor", proveedorServicio.buscarProveedor(id));
-        modelo.put("exito", "Proveedor MODIFICADO exitosamente");
+            modelo.put("proveedor", proveedorServicio.buscarProveedor(id));
+            modelo.put("exito", "Proveedor MODIFICADO exitosamente");
 
-        return "proveedor_mostrar.html";
+            return "proveedor_mostrar.html";
+
+        } catch (MiException ex) {
+
+            modelo.put("proveedor", proveedorServicio.buscarProveedor(id));
+            modelo.put("error", ex.getMessage());
+
+            return "proveedor_modificar.html";
+        }
+
     }
 
     @GetMapping("/eliminar/{id}")

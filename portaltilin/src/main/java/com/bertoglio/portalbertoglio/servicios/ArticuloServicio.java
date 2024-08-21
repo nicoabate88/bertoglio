@@ -91,7 +91,7 @@ public class ArticuloServicio {
     public void stockArtResta(Detalle detalle) { //metodo para ajustar stock de articulos por factura modificada (articulo eliminado)
 
         Articulo articulo = new Articulo();
-        Optional<Articulo> art = articuloRepositorio.findByCodigo(detalle.getCodigo());
+        Optional<Articulo> art = articuloRepositorio.findByNombre(detalle.getNombre());
         if (art.isPresent()) {
             articulo = art.get();
         }
@@ -106,7 +106,7 @@ public class ArticuloServicio {
     public void stockArtSuma(Detalle detalle) { //metodo para ajustar stock de articulos por factura modificada (articulo eliminado)
 
         Articulo articulo = new Articulo();
-        Optional<Articulo> art = articuloRepositorio.findByCodigo(detalle.getCodigo());
+        Optional<Articulo> art = articuloRepositorio.findByNombre(detalle.getNombre());
         if (art.isPresent()) {
             articulo = art.get();
         }
@@ -171,15 +171,14 @@ public class ArticuloServicio {
     @Transactional
     public void modificarArticulo(Long id, String nombre, String codigo, Double precio, Double cantidad) throws MiException {
 
-        validarDatos(codigo);
-
         Articulo articulo = new Articulo();
 
         Optional<Articulo> art = articuloRepositorio.findById(id);
         if (art.isPresent()) {
             articulo = art.get();
         }
-
+        validarDatosModificar(articulo, nombre);
+        
         String nombreMayusculas = nombre.toUpperCase();
         String codigoMayusculas = codigo.toUpperCase();
 
@@ -223,6 +222,19 @@ public class ArticuloServicio {
                 throw new MiException("El Nombre de ARTÍCULO ya está registrado");
             }
         }
+    }
+    
+    public void validarDatosModificar(Articulo articulo, String nombre) throws MiException {
+
+        ArrayList<Articulo> listaArticulo = buscarArticulos();
+
+        if(!articulo.getNombre().equalsIgnoreCase(nombre)){
+        for (Articulo a : listaArticulo) {
+            if (a.getNombre().equalsIgnoreCase(nombre)) {
+                throw new MiException("El Nombre de ARTÍCULO ya está registrado");
+            }
+        }
+    }
     }
 
 }

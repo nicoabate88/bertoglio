@@ -4,6 +4,8 @@ import com.bertoglio.portalbertoglio.excepciones.MiException;
 import com.bertoglio.portalbertoglio.servicios.ClienteServicio;
 import com.bertoglio.portalbertoglio.servicios.ServicioServicio;
 import com.bertoglio.portalbertoglio.servicios.VehiculoServicio;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -125,12 +127,25 @@ public class VehiculoControlador {
     public String modifica(@RequestParam Long id, @RequestParam String dominio, @RequestParam String marca,
             @RequestParam String modelo, @RequestParam(required = false) Long anio, @RequestParam Long idCliente, ModelMap model) {
 
-        vehiculoServicio.modificarVehiculo(id, dominio, marca, modelo, anio, idCliente);
+        try {
+            vehiculoServicio.modificarVehiculo(id, dominio, marca, modelo, anio, idCliente);
 
-        model.put("vehiculo", vehiculoServicio.buscarVehiculo(id));
-        model.put("exito", "Vehículo MODIFICADO exitosamente");
+            model.put("vehiculo", vehiculoServicio.buscarVehiculo(id));
+            model.put("exito", "Vehículo MODIFICADO exitosamente");
 
-        return "vehiculo_mostrar.html";
+            return "vehiculo_mostrar.html";
+
+        } catch (MiException ex) {
+
+            model.put("vehiculo", vehiculoServicio.buscarVehiculo(id));
+            model.addAttribute("clientes", clienteServicio.bucarClientes());
+
+            model.put("error", ex.getMessage());
+
+            return "vehiculo_modificar.html";
+
+        }
+
     }
 
     @GetMapping("/eliminar/{id}")

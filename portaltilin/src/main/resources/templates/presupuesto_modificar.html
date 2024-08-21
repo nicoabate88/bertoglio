@@ -8,8 +8,8 @@
         <link rel="stylesheet" href="/css/medidas_mostrar.css">    
     </head>
     <body>
-        <nav class="navbar bg-dark mb-2">      
-            <header class=" text-bg-dark">
+          <nav class="navbar bg-secondary mb-2">      
+            <header>
                 <div class="container">
                     <div class="d-flex flex-wrap align-items-center justify-content-center">                        
                         <a href="/index" class="d-flex align-items-center text-white text-decoration-none">                         
@@ -21,7 +21,7 @@
                             <li><a href="/presupuesto/registrar" class="nav-link px-2 text-light">PRESUPUESTO</a></li>
                             <li><a href="/recibo/registrar" class="nav-link px-2 text-light">RECIBO</a></li>
                             <li><a href="/cuenta/listar" class="nav-link px-2 text-light">CUENTA</a></li>
-                            <li><a href="/proveedor/registrar" class="nav-link px-2 text-light">PROVEEDOR</a></li>
+                            <li><a href="/proveedor/listar" class="nav-link px-2 text-light">PROVEEDOR</a></li>
                             <li><a href="/caja/listar" class="nav-link px-2 text-light">CAJA</a></li>
                         </ul>
                     </div>
@@ -33,7 +33,7 @@
             <div class="container">
 
                 <div class="card">
-                    <div class="card-header bg-dark">
+                    <div class="card-header border-0 bg-light">
 
                         <form class="formulario" th:action="@{/presupuesto/modifica/__${presupuesto.id}__}" method="POST">
 
@@ -42,14 +42,14 @@
 
                             <div class="row mb-2">
                                 <div class="d-none d-sm-block col-md-2 col-lg-2 col-xl-2">
-                                    <div class="form-floating btn btn-outline-danger" type="button">
+                                    <div class="form-floating btn btn-outline-primary" type="button">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="100" height="28" fill="currentColor" class="bi bi-calculator-fill" viewBox="0 0 16 16">
                                         <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm2 .5v2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0-.5.5m0 4v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 12.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM7 9.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM10 6.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5z"/>
                                         </svg>  <h5>Presupuesto</h5>
                                     </div>
                                 </div>
                                 <div class="d-none d-sm-block col-md-4 col-lg-4 col-xl-4">
-                                    <div class="d-flex align-items-center text-danger" style="height: 72px;">
+                                    <div class="d-flex align-items-center text-primary" style="height: 72px;">
                                         <h3>Modificar Presupuesto</h3>
                                     </div>
                                 </div>
@@ -57,7 +57,7 @@
 
                                 </div>
                                 <div class="d-none d-sm-block col-md-2 col-lg-2 col-xl-2 text-end">    
-                                    <a th:href="@{/presupuesto/eliminar/__${presupuesto.id}__}" title="Eliminar Servicio" type="button" class="form-floating mb-2 button btn btn-outline-warning">
+                                    <a th:href="@{/presupuesto/eliminar/__${presupuesto.id}__}" title="Eliminar Servicio" type="button" class="form-floating mb-2 button btn btn-outline-secondary">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="100" height="28" fill="currentColor" class="bi bi-calculator-fill" viewBox="0 0 16 16">
                                         <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm2 .5v2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0-.5.5m0 4v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 12.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM7 9.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM10 6.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5z"/>
                                         </svg>   <h5>Eliminar</h5>
@@ -81,14 +81,14 @@
                             <div class="row mb-2">
                                 <div class="col-sm-1">               
                                     <div class="form-floating mb-2">
-                                        <label for="id" class="form-label text-white">ID</label>
-                                        <input type="text" id="id" class="bg-dark text-white form-control" th:value="${presupuesto.id}" disabled readonly>
+                                        <label for="id" class="form-label text-secondary">ID</label>
+                                        <input type="text" id="id" class="form-control" th:value="${presupuesto.id}" disabled readonly>
                                     </div>
                                 </div>
                                 <div class="col-sm-5">
                                     <div class="form-floating mb-2">
-                                        <label for="cliente" class="form-label text-white">Nombre de Cliente</label>
-                                        <select id="cliente" class="bg-dark text-white form-control" name="idCliente">
+                                        <label for="cliente" class="form-label text-secondary">Nombre de Cliente</label>
+                                        <select id="cliente" class="form-control" name="idCliente">
                                             <option selected th:text="${presupuesto.cliente.nombre}"
                                                     th:value="${presupuesto.cliente.id}"
                                                     ></option>
@@ -100,8 +100,8 @@
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-floating mb-2">
-                                        <label for="vehiculo" class="form-label text-white">Vehículo</label>
-                                        <select id="vehiculo" class="bg-dark text-white form-control" name="idVehiculo">                                      
+                                        <label for="vehiculo" class="form-label text-secondary">Vehículo</label>
+                                        <select id="vehiculo" class="form-control" name="idVehiculo">                                      
                                             <option selected th:text="${presupuesto.vehiculo.dominio}+' - '+ ${presupuesto.vehiculo.marca}+' '+${presupuesto.vehiculo.modelo}"
                                                     th:value="${presupuesto.vehiculo.id}"
                                                     ></option> 
@@ -113,8 +113,8 @@
                                 </div>      
                                 <div class="col-sm-2">
                                     <div class="form-floating mb-2">
-                                        <label for="fecha" class="form-label text-white">Fecha de Servicio</label>
-                                        <input id="fecha" type="date" class="bg-dark text-white form-control" th:value="${presupuesto.fecha}" name="fecha">
+                                        <label for="fecha" class="form-label text-secondary">Fecha de Servicio</label>
+                                        <input id="fecha" type="date" class="form-control" th:value="${presupuesto.fecha}" name="fecha">
                                     </div>
                                 </div>
                             </div>
@@ -122,18 +122,18 @@
                             <div class="row">
                                 <div class="mb-4 col-sm-12">
                                     <div class="form-floating">
-                                        <label for="observacion" class="form-label text-white">Observación</label>
-                                        <input id="observacion" type="text" class="bg-dark text-white form-control" th:value="${presupuesto.observacion}" name="observacion">  
+                                        <label for="observacion" class="form-label text-secondary">Observación</label>
+                                        <input id="observacion" type="text" class="form-control" th:value="${presupuesto.observacion}" name="observacion">  
                                     </div>
                                 </div>
                             </div>
 
-                        <div class="form-floating mb-3 text-light">
+                        <div class="form-floating mb-3 text-secondary">
                             <h5>Artículos</h5>
                         </div>
 
-                        <div class="table-responsive mb-3" id="tablaModificar" style="background-color:  whitesmoke; padding: 15px; border-radius: 3px;">
-                            <table class="table table-sm table-hover">
+                        <div class="table-responsive mb-3" id="tablaModificar" style="background-color:  white; padding: 15px; border-radius: 3px;">
+                            <table class="table table-sm table-hover text-secondary">
                                 <thead>
                                     <tr>
                                         <th class="col-sm-1">Cantidad</th>
@@ -165,8 +165,8 @@
                                 </tr>
                             </table>
                         </div>
-                        <button type="submit" class="btn btn-outline-danger" title="Modificar">Aceptar</button>    
-                        <a type="button" class="btn btn-outline-warning" onclick="window.history.back();" title="Volver">Cancelar</a>          
+                        <button type="submit" class="btn btn-outline-primary" title="Modificar">Aceptar</button>    
+                        <a type="button" class="btn btn-outline-primary" onclick="window.history.back();" title="Volver">Cancelar</a>          
                         </form>
                     </div>
                 </div>

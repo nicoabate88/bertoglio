@@ -7,8 +7,8 @@
         <link rel="stylesheet" href="/css/medidas_container.css">   
     </head>
     <body>
-        <nav class="navbar bg-dark mb-2">      
-            <header class=" text-bg-dark">
+         <nav class="navbar bg-secondary mb-2">      
+            <header>
                 <div class="container">
                     <div class="d-flex flex-wrap align-items-center justify-content-center">                        
                         <a href="/index" class="d-flex align-items-center text-white text-decoration-none">                         
@@ -20,7 +20,7 @@
                             <li><a href="/presupuesto/registrar" class="nav-link px-2 text-light">PRESUPUESTO</a></li>
                             <li><a href="/recibo/registrar" class="nav-link px-2 text-light">RECIBO</a></li>
                             <li><a href="/cuenta/listar" class="nav-link px-2 text-light">CUENTA</a></li>
-                            <li><a href="/proveedor/registrar" class="nav-link px-2 text-light">PROVEEDOR</a></li>
+                            <li><a href="/proveedor/listar" class="nav-link px-2 text-light">PROVEEDOR</a></li>
                             <li><a href="/caja/listar" class="nav-link px-2 text-light">CAJA</a></li>
                         </ul>
                     </div>
@@ -31,36 +31,36 @@
         <section>
         <div class="container">
 
-            <div class="card bg-dark" id="alturaCard">  
-                <div class="card-header bg-dark text-white">
+            <div class="card bg-light" id="alturaCard">  
+                <div class="card-header border-0 bg-light">
 
                     <div class="row mb-2">
                         <div class="d-none d-sm-block col-md-2 col-lg-2 col-xl-2">
-                            <a th:href="@{/articulo/listar}" type="button" class="form-floating mb-2 btn btn-outline-danger">
+                            <a th:href="@{/articulo/listar}" type="button" class="form-floating mb-2 btn btn-outline-primary">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="28" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
                                 <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
                                 </svg>    <h5>Artículo</h5>
                             </a>
                         </div>
                         <div class="d-none d-sm-block col-md-3 col-lg-3 col-xl-3">
-                            <div class="d-flex align-items-center text-danger" style="height: 72px;">
+                            <div class="d-flex align-items-center text-primary" style="height: 72px;">
                                 <h3>Lista de Artículos</h3>
                             </div>
                         </div> 
                         <div class="d-none d-sm-block col-md-4 col-lg-4 col-xl-4">    
-                            <div th:if="${exito != null}" class="btn btn-outline-warning">
+                            <div th:if="${exito != null}" class="btn btn-outline-dark">
                                 <h5>Mensaje:</h5>
                                 <h6 th:text="${exito}"></h6>
                             </div>                                                   
                         </div>
                         <div class="d-none d-sm-block col-md-1 col-lg-1 col-xl-1">
-                                <a th:href="@{/articulo/listarPdf}" target="_blank" title="Generar PDF" type="button" class="btn btn-outline-warning">
+                                <a th:href="@{/articulo/listarPdf}" target="_blank" title="Generar PDF" type="button" class="btn btn-outline-secondary">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z"/>
                                     </svg> </a>                                               
                             </div>
                         <div class="d-none d-sm-block col-md-2 col-lg-2 col-xl-2 text-end">    
-                            <a th:href="@{/articulo/registrar}" title="Registrar nuevo Artículo" type="button" class="form-floating mb-2 btn btn-outline-warning">
+                            <a th:href="@{/articulo/registrar}" title="Registrar nuevo Artículo" type="button" class="form-floating mb-2 btn btn-outline-secondary">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="28" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
                                 <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0M9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0"/>
                                 </svg> <h5>Nuevo</h5>
@@ -89,24 +89,24 @@
                         </div>
 
                     <div class="table-responsive">
-                        <table class="table table-dark table-hover table-sm">
+                        <table class="table table-sm text-secondary">
                             <thead>
                                 <tr>
                                     <th class="col-sm-1">
-                                        <a th:href="@{/articulo/listarIdAsc}" title="Ordenar Lista por ID ASC" type="button" style="color: white">
+                                        <a th:href="@{/articulo/listarIdAsc}" title="Ordenar Lista por ID ASC" type="button" style="color: gray">
                                             ID
                                         </a></th>
                                     <th class="col-sm-5">
-                                        <a th:href="@{/articulo/listarNombreAsc}" title="Ordenar Lista Alfabeticamente" type="button" style="color: white">
+                                        <a th:href="@{/articulo/listarNombreAsc}" title="Ordenar Lista Alfabeticamente" type="button" style="color: gray">
                                             NOMBRE DE ARTÍCULO
                                         </a></th>
                                     <th class="col-sm-2">CÓDIGO</th>
                                     <th class="col-sm-1 text-center">
-                                        <a th:href="@{/articulo/listarCantidadAsc}" title="Ordenar Lista por Cantidad" type="button" style="color: white">
+                                        <a th:href="@{/articulo/listarCantidadAsc}" title="Ordenar Lista por Cantidad" type="button" style="color: gray">
                                             CANTIDAD
                                         </a></th>
                                     <th class="col-sm-1 text-center">
-                                        <a th:href="@{/articulo/listarPrecioAsc}" title="Ordenar Lista por Precio" type="button" style="color: white">
+                                        <a th:href="@{/articulo/listarPrecioAsc}" title="Ordenar Lista por Precio" type="button" style="color: gray">
                                             PRECIO
                                         </a></th>
                                     <th class="col-sm-1 text-center">VER</th>    
@@ -120,11 +120,11 @@
                                     <td th:text="${articulo.codigo}"></td>
                                     <td class="text-center" th:text="${articulo.cantidad}"></td>
                                     <td class="text-center" th:text="'$'+${articulo.precio}"></td>
-                                    <td class="text-center"><a th:href="@{/articulo/mostrar/__${articulo.id}__}" type="button" class="btn btn-outline-danger" title="Modificar Artículo">
+                                    <td class="text-center"><a th:href="@{/articulo/mostrar/__${articulo.id}__}" type="button" class="btn btn-outline-secondary" title="Modificar Artículo">
                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
                                 <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
                                 </svg>    </a></td> 
-                                    <td class="text-center"><a th:href="@{/articulo/modificar/__${articulo.id}__}" type="button" class="btn btn-outline-warning" title="Modificar Artículo">
+                                    <td class="text-center"><a th:href="@{/articulo/modificar/__${articulo.id}__}" type="button" class="btn btn-outline-danger" title="Modificar Artículo">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16"><path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/></svg>            
                                         </a></td>                          
                                 </tr>

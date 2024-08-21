@@ -6,6 +6,8 @@ import com.bertoglio.portalbertoglio.servicios.CuentaServicio;
 import com.bertoglio.portalbertoglio.servicios.ServicioServicio;
 import com.bertoglio.portalbertoglio.servicios.TransaccionServicio;
 import com.bertoglio.portalbertoglio.servicios.VehiculoServicio;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -112,12 +114,23 @@ public class ClienteControlador {
     public String modifica(@RequestParam Long id, @RequestParam String nombre, @RequestParam(required = false) Long cuit, @RequestParam(required = false) String localidad,
             @RequestParam(required = false) String direccion, @RequestParam(required = false) Long telefono, @RequestParam(required = false) String email, ModelMap modelo) {
 
-        clienteServicio.modificarCliente(id, nombre, cuit, localidad, direccion, telefono, email);
+        try {
+            clienteServicio.modificarCliente(id, nombre, cuit, localidad, direccion, telefono, email);
 
-        modelo.put("cliente", clienteServicio.buscarCliente(id));
-        modelo.put("exito", "Cliente MODIFICADO exitosamente");
+            modelo.put("cliente", clienteServicio.buscarCliente(id));
+            modelo.put("exito", "Cliente MODIFICADO exitosamente");
 
-        return "cliente_mostrar.html";
+            return "cliente_mostrar.html";
+
+        } catch (MiException ex) {
+
+            modelo.put("cliente", clienteServicio.buscarCliente(id));
+            modelo.put("error", ex.getMessage());
+            
+            return "cliente_modificar.html";
+            
+        }
+
     }
 
     @GetMapping("/eliminar/{id}")

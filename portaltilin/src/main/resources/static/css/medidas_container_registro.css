@@ -42,8 +42,8 @@ body, html {
         font-size: 15px;
     }
     #logo {
-        width: 155px; /* Puedes usar px, %, em, rem, etc. */
-        height: auto;
+        width: 92px; /* Puedes usar px, %, em, rem, etc. */
+        height: 38px;
     }
 
     .container {
@@ -66,6 +66,7 @@ body, html {
         max-height: 653px;  
 
     }
+
 
 }
 

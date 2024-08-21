@@ -89,7 +89,7 @@ public class ClienteServicio {
     }
 
     @Transactional
-    public void modificarCliente(Long id, String nombre, Long cuit, String localidad, String direccion, Long telefono, String email) {
+    public void modificarCliente(Long id, String nombre, Long cuit, String localidad, String direccion, Long telefono, String email) throws MiException {
 
         Cliente cliente = new Cliente();
 
@@ -97,7 +97,8 @@ public class ClienteServicio {
         if (cte.isPresent()) {
             cliente = cte.get();
         }
-
+        validarDatosModificar(cliente, nombre);
+        
         String nombreMayusculas = nombre.toUpperCase();
         String localidadMayusculas = localidad.toUpperCase();
         String direccionMayusculas = direccion.toUpperCase();
@@ -149,6 +150,19 @@ public class ClienteServicio {
                 throw new MiException("El NOMBRE de Cliente ya está registrado");
             }
         }
+    }
+    
+    public void validarDatosModificar(Cliente cliente, String nombre) throws MiException {
+
+        ArrayList<Cliente> listaClientes = bucarClientes();
+        
+        if(!cliente.getNombre().equalsIgnoreCase(nombre)){
+        for (Cliente lista : listaClientes) {
+            if (lista.getNombre().equalsIgnoreCase(nombre)) {
+                throw new MiException("El NOMBRE de Cliente ya está registrado");
+            }
+        }
+    }
     }
 
 }

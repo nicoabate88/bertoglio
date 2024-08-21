@@ -42,14 +42,14 @@ public class PortalControlador {
         return "index.html";
     }
 
-    // @PreAuthorize("hasRole('ROLE_admin')")
+    @PreAuthorize("hasRole('ROLE_admin')")
     @GetMapping("/registrar")
     public String registrarUsuario() {
 
         return "usuario_registrar.html";
     }
 
-    // @PreAuthorize("hasRole('ROLE_admin')")
+    @PreAuthorize("hasRole('ROLE_admin')")
     @PostMapping("/registro")
     public String registroUsuario(@RequestParam String nombre, @RequestParam String nombreUsuario,
             @RequestParam String password, @RequestParam String password2, ModelMap modelo) {

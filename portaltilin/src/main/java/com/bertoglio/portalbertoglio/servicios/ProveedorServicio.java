@@ -96,7 +96,7 @@ public class ProveedorServicio {
     }
 
     @Transactional
-    public void modificarProveedor(Long id, String nombre, Long cuit, String localidad, String direccion, Long telefono, String email) {
+    public void modificarProveedor(Long id, String nombre, Long cuit, String localidad, String direccion, Long telefono, String email) throws MiException {
 
         Proveedor proveedor = new Proveedor();
 
@@ -104,7 +104,8 @@ public class ProveedorServicio {
         if (prov.isPresent()) {
             proveedor = prov.get();
         }
-
+        validarDatosModificar(proveedor, nombre);
+        
         String nombreMayusculas = nombre.toUpperCase();
         String localidadMayusculas = localidad.toUpperCase();
         String direccionMayusculas = direccion.toUpperCase();
@@ -150,6 +151,19 @@ public class ProveedorServicio {
                 throw new MiException("El Nombre de Proveedor ya está registrado");
             }
         }
+    }
+    
+    public void validarDatosModificar(Proveedor proveedor, String nombre) throws MiException {
+
+        ArrayList<Proveedor> listaProveedores = bucarProveedores();
+
+        if(!proveedor.getNombre().equalsIgnoreCase(nombre)){
+        for (Proveedor lista : listaProveedores) {
+            if (lista.getNombre().equalsIgnoreCase(nombre)) {
+                throw new MiException("El Nombre de Proveedor ya está registrado");
+            }
+        }
+    }
     }
 
 }
